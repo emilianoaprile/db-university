@@ -44,12 +44,19 @@
 ## 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
 #### SELECT `teachers`.`id`, `degree_id` 
-#### FROM `courses` 
+#### FROM `courses` 
 #### INNER JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id` 
 #### INNER JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id` 
 #### WHERE `teachers`.`id` = 44;
 
 ## 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+
+#### SELECT `students`.`id` AS `student_id`,`students`.`surname` AS `student_surname`, `students`.`name` AS `student_name`, `degrees`.`id` AS `degree_id`, `degrees`.`name` AS `degree_name`, `degrees`.`level`, `degrees`.`address`, `degrees`.`email`, `degrees`.`website`, `departments`.`id` AS `department_id`, `departments`.`name` AS `department_name`
+#### FROM `students` 
+#### INNER JOIN `degrees` ON `students`.`degree_id` = `degrees`.`id` 
+#### INNER JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` 
+#### ORDER BY `student_surname` DESC;
+
 ## 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 ## 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 ## 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
