@@ -8,11 +8,15 @@
 
 ## 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
-#### SELECT COUNT(*), `office_address` AS `teacher_office_address`
+#### SELECT COUNT(*) AS `number_of_teacher`, `office_address` AS `teacher_office_address`
 #### FROM `teachers` 
 #### GROUP BY `teacher_office_address`;
 
 ## 3. Calcolare la media dei voti di ogni appello d'esame
+
+#### SELECT AVG(`vote`) AS `average_vote` 
+#### FROM `exam_student`;
+
 ## 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
 
 # Query con JOIN
